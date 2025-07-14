@@ -385,6 +385,12 @@ display: none;
 
 }
 
+
+
+
+
+
+
 .inner-panel-caret.closed{
   width: 24px;
   position: relative;
@@ -394,6 +400,9 @@ display: none;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+    /* transform: rotate(180deg); */
+  transition: transform 0.2s ease-out;
 }
 
 
@@ -407,8 +416,9 @@ display: none;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-   transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
   transform: rotate(180deg);
+  transition: transform 0.2s ease-out;
 }
 
 

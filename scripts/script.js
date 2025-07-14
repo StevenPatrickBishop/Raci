@@ -131,8 +131,8 @@ function attachInnerAccordionToggle() {
       hideNavControl();
       showNavControl(btn);
 
-      closeCarets(btn);
-      openCaret(btn)
+      // closeCarets(btn);
+      // openCaret(btn);
 
 
 
@@ -149,12 +149,14 @@ function attachInnerAccordionToggle() {
         expandPanel(innerContent);
         btn.classList.add('open');
         scrollAll(getScrollPosition());
+        closeCarets(btn);
+        openCaret(btn);
       } else {
 
 
      
 
-
+closeCarets(btn);
 
         collapsePanel(innerContent);
 
@@ -399,6 +401,7 @@ function openDefaultPanel(scrollValue) {
   console.log(innerPanels0);
   
   innerPanels0.querySelector('.nav-control').classList.remove('hidden');
+  openCaret(innerPanels0);
   const basic = document.querySelector('#branch_info_basic');
   const heading = basic.firstElementChild;
   const content = heading.nextElementSibling;

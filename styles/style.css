@@ -395,14 +395,14 @@ display: none;
   width: 24px;
   position: relative;
   /* bottom: 4px; */
-  
+   user-select: none;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 
-    /* transform: rotate(180deg); */
-  transition: transform 0.2s ease-out;
+    /* transform: rotate(180deg);
+  transition: transform 0.075s ease-out; */
 }
 
 
@@ -418,7 +418,8 @@ display: none;
   align-items: center;
   transform-origin: 50% 50%;
   transform: rotate(180deg);
-  transition: transform 0.2s ease-out;
+  /* transition: transform 0.075s ease-out;
+  user-select: none; */
 }
 
 

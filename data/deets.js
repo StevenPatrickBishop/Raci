@@ -1,7 +1,24 @@
 
- window.foo = 'yo';
+ window.foo = 'don\'t be a foo';
 
-window.tabelDeets = {
+
+const stocking_type_definition = "The stocking type defines whether an item is held in inventory and how it is managed within the supply chain";
+const m_stocking_type_definition = "The M stocking type is used for manufactured items that are not sold directly, such as production phases, bulk adhesives, bulk oligomers, and some equipment sub-assemblies.";
+const p_stocking_type_definition = "The P stocking type is used for any purchased raw material or any item acquired via an intercompany transfer";
+const S_stocking_type_definition = "The S stocking type is used for manufactured and packaged items that are sold directly, including finished goods and saleable intermediates";
+
+
+
+const data_type_udc = "User Defined Code";
+
+
+
+
+
+
+
+
+window.tableDeets = {
   "field_stocking_type": {
     "label": "",
     "type": "",
@@ -60,228 +77,233 @@ window.tabelDeets = {
   },
   "manufactured_adhesive_stocking_type": {
     "label": "",
-    "type": "",
-    "usage": "",
-    "group": "",
-    "notes": "",
-    "tooltip": "",
-    "required": false,
-    "visible": true,
-    "editable": true,
-    "default_settings": "",
-    "data_source": "",
-    "default_value": ""
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
+    "group": "Supply Chain owns the Stocking strategy",
+    "notes": m_stocking_type_definition,
+    "tooltip": "", /*NOT IN USE */
+    "required": false, /*NOT IN USE */
+    "visible": true, /*NOT IN USE */
+    "editable": true, /*NOT IN USE */
+    "default_settings": "M", 
+    "data_source": "", /*NOT IN USE */
+    "default_value": "" /*NOT IN USE */
   },
   "manufactured_phases_stocking_type": {
     "label": "",
-    "type": "",
-    "usage": "",
-    "group": "",
-    "notes": "",
-    "tooltip": "",
-    "required": false,
-    "visible": true,
-    "editable": true,
-    "default_settings": "",
-    "data_source": "",
-    "default_value": ""
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
+    "group": "Supply Chain owns the Stocking strategy",
+    "notes": m_stocking_type_definition,
+    "tooltip": "", /*NOT IN USE */
+    "required": false, /*NOT IN USE */
+    "visible": true, /*NOT IN USE */
+    "editable": true, /*NOT IN USE */
+    "default_settings": m_stocking_type_definition,
+    "data_source": "", /*NOT IN USE */
+    "default_value": "" /*NOT IN USE */
   },
   "manufactured_oligomer_stocking_type": {
     "label": "",
-    "type": "",
-    "usage": "",
-    "group": "",
-    "notes": "",
-    "tooltip": "",
-    "required": false,
-    "visible": true,
-    "editable": true,
-    "default_settings": "",
-    "data_source": "",
-    "default_value": ""
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
+    "group": "Supply Chain owns the Stocking strategy",
+    "notes": m_stocking_type_definition,
+    "tooltip": "", /*NOT IN USE */
+    "required": false, /*NOT IN USE */
+    "visible": true, /*NOT IN USE */
+    "editable": true, /*NOT IN USE */
+    "default_settings": m_stocking_type_definition,
+    "data_source": "", /*NOT IN USE */
+    "default_value": "" /*NOT IN USE */
   },
   "manufactured_toll_stocking_type": {
-    "label": "",
-    "type": "",
-    "usage": "",
-    "group": "",
-    "notes": "",
-    "tooltip": "",
-    "required": false,
-    "visible": true,
-    "editable": true,
-    "default_settings": "",
-    "data_source": "",
-    "default_value": ""
+     "label": "",
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
+    "group": "Toll production is largely partner-driven, but ownership of the stocking strategy resides with Supply Chain",
+    "notes": "Toll stocking type varies based on the commercial arrangement. Some toll items are manufactured and sold in bulk form, while others are sold under a packaged part number. If the bulk material is sold directly without being converted to a packaged part number, its stocking type will be set to (S). If the bulk material is used in a bill of materials to produce a packaged item, it will be coded as (M), consistent with how other bulk intermediates are handled.",
+    "tooltip": "", /*NOT IN USE */
+    "required": false, /*NOT IN USE */
+    "visible": true, /*NOT IN USE */
+    "editable": true, /*NOT IN USE */
+    "default_settings": m_stocking_type_definition, 
+    "data_source": "", /*NOT IN USE */
+    "default_value": "" /*NOT IN USE */
   },
   "packaged_adhesive_stocking_type": {
     "label": "",
-    "type": "",
-    "usage": "",
-    "group": "",
-    "notes": "",
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
+    "group": "Supply Chain owns the Stocking strategy",
+    "notes": "When packaged at a facility, bulk-packs, XN-packs, and commercial SKUs are assigned an S stocking type",
     "tooltip": "",
     "required": false,
     "visible": true,
     "editable": true,
-    "default_settings": "",
+    "default_settings": S_stocking_type_definition,
     "data_source": "",
     "default_value": ""
   },
   "packaged_oligomer_stocking_type": {
     "label": "",
-    "type": "",
-    "usage": "",
-    "group": "",
-    "notes": "",
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
+    "group": "Supply Chain owns the Stocking strategy",
+    "notes": "When packaged at a facility, bulk-packs, XN-packs, and commercial SKUs are assigned an S stocking type",
     "tooltip": "",
     "required": false,
     "visible": true,
     "editable": true,
-    "default_settings": "",
+    "default_settings": S_stocking_type_definition,
     "data_source": "",
     "default_value": ""
   },
   "packaged_toll_stocking_type": {
     "label": "",
-    "type": "",
-    "usage": "",
-    "group": "",
-    "notes": "",
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
+    "group": "Supply Chain owns the Stocking strategy",
+    "notes": "When packaged at a facility, the Toll items are assigned an S stocking type",
     "tooltip": "",
     "required": false,
     "visible": true,
     "editable": true,
-    "default_settings": "",
+    "default_settings": S_stocking_type_definition,
     "data_source": "",
     "default_value": ""
   },
   "manufactured_equipment_stocking_type": {
     "label": "",
-    "type": "",
-    "usage": "",
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
     "group": "",
     "notes": "",
     "tooltip": "",
     "required": false,
     "visible": true,
     "editable": true,
-    "default_settings": "",
+    "default_settings": S_stocking_type_definition,
     "data_source": "",
     "default_value": ""
   },
   "manufactured_equ_sub_assembly_stocking_type": {
     "label": "",
-    "type": "",
-    "usage": "",
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
     "group": "",
     "notes": "",
     "tooltip": "",
     "required": false,
     "visible": true,
     "editable": true,
-    "default_settings": "",
+    "default_settings": m_stocking_type_definition,
     "data_source": "",
     "default_value": ""
   },
   "purchased_chemical_raws_stocking_type": {
     "label": "",
-    "type": "",
-    "usage": "",
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
     "group": "",
     "notes": "",
     "tooltip": "",
     "required": false,
     "visible": true,
     "editable": true,
-    "default_settings": "",
+    "default_settings": p_stocking_type_definition,
     "data_source": "",
     "default_value": ""
   },
   "purchased_packaging_stocking_type": {
     "label": "",
-    "type": "",
-    "usage": "",
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
     "group": "",
     "notes": "",
     "tooltip": "",
     "required": false,
     "visible": true,
     "editable": true,
-    "default_settings": "",
+    "default_settings": p_stocking_type_definition,
     "data_source": "",
     "default_value": ""
   },
   "purchased_equipment_raws_stocking_type": {
     "label": "",
-    "type": "",
-    "usage": "",
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
     "group": "",
     "notes": "",
     "tooltip": "",
     "required": false,
     "visible": true,
     "editable": true,
-    "default_settings": "",
+    "default_settings": p_stocking_type_definition,
     "data_source": "",
     "default_value": ""
   },
   "transferred_adhesive__stocking_type": {
     "label": "",
-    "type": "",
-    "usage": "",
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
     "group": "",
     "notes": "",
     "tooltip": "",
     "required": false,
     "visible": true,
     "editable": true,
-    "default_settings": "",
+    "default_settings": p_stocking_type_definition,
     "data_source": "",
     "default_value": ""
   },
   "transferfed_oligomer_stocking_type": {
     "label": "",
-    "type": "",
-    "usage": "",
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
     "group": "",
     "notes": "",
     "tooltip": "",
     "required": false,
     "visible": true,
     "editable": true,
-    "default_settings": "",
+    "default_settings": p_stocking_type_definition,
     "data_source": "",
     "default_value": ""
   },
   "transferred_chemical_raw_material_stocking_type": {
     "label": "",
-    "type": "",
-    "usage": "",
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
     "group": "",
     "notes": "",
     "tooltip": "",
     "required": false,
     "visible": true,
     "editable": true,
-    "default_settings": "",
+    "default_settings": p_stocking_type_definition,
     "data_source": "",
     "default_value": ""
   },
   "transferred_equipment_stocking_type": {
     "label": "",
-    "type": "",
-    "usage": "",
+    "type": data_type_udc,
+    "usage": stocking_type_definition,
     "group": "",
     "notes": "",
     "tooltip": "",
     "required": false,
     "visible": true,
     "editable": true,
-    "default_settings": "",
+    "default_settings": p_stocking_type_definition,
     "data_source": "",
     "default_value": ""
   },
+
+
+// GL CLASS
+
+
   "field_g/l_class": {
     "label": "",
     "type": "",

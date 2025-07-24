@@ -720,32 +720,94 @@ document.querySelectorAll('.go-right').forEach(el => {
 
 
 
+function showModal(title, bodyText) {
+  const modalHTML = `
+    <div class="modal-overlay" id="modal-overlay">
+      <div class="modal-box">
+        <button class="modal-close" id="modal-close">&times;</button>
+        <div class="modal-header">${title}</div>
+        <div class="modal-body">${bodyText}</div>
+      </div>
+    </div>
+  `;
+
+  const container = document.getElementById('modal-container');
+  container.innerHTML = modalHTML;
+
+  // Close button
+  document.getElementById('modal-close').addEventListener('click', () => {
+    container.innerHTML = '';
+  });
+
+  // Close modal when clicking outside the box
+  document.getElementById('modal-overlay').addEventListener('click', (e) => {
+    if (e.target.id === 'modal-overlay') {
+      container.innerHTML = '';
+    }
+  });
+}
+
+
+function attachModalTriggers() {
+
+  document.querySelectorAll('.data-item').forEach(cell => {
+    cell.addEventListener('click', () => {
+
+    const key = cell.id;
+    const deets = window.tableDeets[key];
+    console.log(key);
+    console.log(deets);
+    
+    if (!deets) {
+      showModal('Unknown Field', 'No details available.');
+      return;
+    }
+
+
+     const title = key.replace(/_/g, ' ').toUpperCase();  // Or use `deets.label` if it exists
+    const body = `
+  <div><p><strong>Dymax Settings:</strong> ${deets.default_settings || 'N/A'}</p></div>
+  <div><p><strong>Usage:</strong> ${deets.usage || 'N/A'}</p></div>
+  <div><p><strong>Notes:</strong> ${deets.notes || 'N/A'}</p></div>
+  <div><p><strong>Data Type:</strong> ${deets.type || 'N/A'}</p></div>
+  <div><p><strong>Owner:</strong> ${deets.group || 'N/A'}</p></div>
+   `;
+
+
+    showModal(title, body);
+
+
+
+     
+
+
+
+    });
+  });
+
+
+
+  
+}
 
 
 
 
 
-// function getDeets(){
-// let tables = document.querySelectorAll(".scroller");
-// tables.forEach(table => {
-//   // x = table.querySelectorAll('td[id]');
-//   console.log(x);
-//   x.forEach(el =>{
-//     el.addEventListener('click', ()=>{
-//       console.log(window.tabelDeets[el.id]);
-//     });
-//   });
+// // DOM READY
+// document.addEventListener('DOMContentLoaded', () => {
+//   build();
+//   attachOuterAccordionToggle();
+//   attachInnerAccordionToggle();
+//   attachScroller();
+//   attachButtonControls();
+//   enableOverlayScrollBehavior();
+//   addScrollButtons();
+//   // getDeets();
 // });
-// }
 
 
 
-
-
-
-
-
-// DOM READY
 document.addEventListener('DOMContentLoaded', () => {
   build();
   attachOuterAccordionToggle();
@@ -754,7 +816,7 @@ document.addEventListener('DOMContentLoaded', () => {
   attachButtonControls();
   enableOverlayScrollBehavior();
   addScrollButtons();
-  // getDeets();
+  attachModalTriggers(); // <- Add this
 });
 
 

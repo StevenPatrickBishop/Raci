@@ -395,16 +395,15 @@ display: none;
   width: 24px;
   position: relative;
   /* bottom: 4px; */
-  
+   user-select: none;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-    /* transform: rotate(180deg); */
-  transition: transform 0.2s ease-out;
-  user-select: none;
+user-select: none;
+    /* transform: rotate(180deg);
+  transition: transform 0.075s ease-out; */
 }
-
 
 
 .inner-panel-caret.open{
@@ -447,6 +446,14 @@ display: none;
   bottom: 4px;
  
 }
+
+
+
+
+
+
+
+
 
 
 

@@ -38,6 +38,11 @@ body::-webkit-scrollbar-button {
   min-width: 1476px;
   height: auto;
   min-height: 100%;
+
+  width: 100%;
+  max-width: 1476px;
+  min-width: 900px; /* Optional: don't let it collapse too much */
+  margin: 0 auto;
 }
 
 .grid1 { grid-area: 1 / 1 / 2 / 6; }
@@ -513,4 +518,49 @@ margin-bottom: 8px;
 .data-item:hover{
   cursor: pointer;
   background-color: #fffefe;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1280px) {
+  .page_wrap {
+    grid-template-columns: 220px 1fr;
+    grid-column-gap: 16px;
+  }
+
+  aside {
+    width: 220px;
+  }
+
+  .panels {
+    height: auto; /* Less scroll constraint */
+  }
+
+  body {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .page_wrap {
+    display: block;
+    padding: 0 1rem;
+  }
+
+  aside {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  main {
+    max-width: 100%;
+  }
 }

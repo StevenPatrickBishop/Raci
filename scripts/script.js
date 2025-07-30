@@ -608,13 +608,17 @@ function attachModalTriggers() {
 
 
      const title = key.replace(/_/g, ' ').toUpperCase();  // Or use `deets.label` if it exists
-    const body = `
+const body = `
   <div><p><strong>Dymax Settings:</strong> ${deets.default_settings || 'N/A'}</p></div>
   <div><p><strong>Usage:</strong> ${deets.usage || 'N/A'}</p></div>
   <div><p><strong>Notes:</strong> ${deets.notes || 'N/A'}</p></div>
   <div><p><strong>Data Type:</strong> ${deets.type || 'N/A'}</p></div>
   <div><p><strong>Owner:</strong> ${deets.group || 'N/A'}</p></div>
-   `;
+  <div><p><strong>Change Request Required:</strong> ${deets.tooltip || 'N/A'}</p></div>
+  <div><p><strong>Request Change:</strong> 
+    ${deets.required ? `<a href="${deets.required}" target="_blank" rel="noopener noreferrer">Submit Request</a>` : 'N/A'}
+  </p></div>
+`;
 
 
     showModal(title, body);
